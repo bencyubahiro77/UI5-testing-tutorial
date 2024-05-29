@@ -9,6 +9,7 @@
 		<semantic:content>
 			<Table
 				id="table"
+				growing="true"
 				width="auto"
 				class="sapUiResponsiveMargin"
 				items="{

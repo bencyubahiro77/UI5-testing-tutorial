@@ -15,8 +15,17 @@ sap.ui.define([
 		Then.onTheWorklistPage.theTableShouldHaveAllEntries().
 			and.theTitleShouldDisplayTheTotalAmountOfItems();
 
-		// Cleanup
-		Then.iTeardownMyApp();
 	});
+
+	opaTest("should be able to load more items", function(Given, When, Then ){
+		//Actions
+		When.onTheWorklistPage.iPressOnMoreData();
+
+		//Assertions
+		Then.onTheWorklistPage.theTableShouldHaveAllEntries();
+
+		// CleanUp
+		Then.iTeardownMyApp()
+	})
 
 });

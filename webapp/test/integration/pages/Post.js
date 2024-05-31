@@ -15,6 +15,17 @@ sap.ui.define([
                         actions: new Press(),
                         errorMessage: "Did not find the nav button on the object page"
                     });
+                },
+                iPressOnTheTabWithTheKey: function(){
+                    return this.waitFor({
+                        controlType: sViewName,
+                        viewName: sViewName,
+                        matchers: new Properties({
+                            key: sKey
+                        }),
+                        actions: new Press(),
+                        errorMessage: "Cannot find the icon tab car"
+                    })
                 }
             },
             assertions:{
@@ -35,6 +46,17 @@ sap.ui.define([
                         }
          
                     });
+                },
+
+                iShouldSeeTheViewCounter: function(){
+                    return this.waitFor({
+                        id: "viewCounter",
+                        viewName: sViewName,
+                        success: function(){
+                            Opa5.assert.ok(true, "the view counter was visible");
+                        },
+                        errorMessage: "The view counter could not be found"
+                    })
                 }
             }
         }

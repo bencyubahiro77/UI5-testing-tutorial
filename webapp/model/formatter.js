@@ -1,6 +1,6 @@
 sap.ui.define([
-	"sap/m/Text"
-], function (Text) {
+	"sap/ui/demo/bulletinboard/model/DateFormatter" 
+], function (DateFormatter) {
 	"use strict";
 
 	return {
@@ -35,8 +35,11 @@ sap.ui.define([
 		 }else {
 			return "Error"
 		 }
-		}
+		},
 
+		date: function(date){
+			 return new DateFormatter({now: Date.now}).format(date)
+		}
 	};
 
 });

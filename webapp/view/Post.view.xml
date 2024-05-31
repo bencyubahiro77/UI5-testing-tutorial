@@ -1,6 +1,7 @@
 <mvc:View
     controllerName="sap.ui.demo.bulletinboard.controller.Post"
     xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:semantic="sap.m.semantic"
 >
@@ -23,6 +24,41 @@
                 numberUnit="{Currency}"
                 backgroundDesign="Translucent"
             />
+            <IconTabBar
+                id="iconTabBar"
+                expanded="{device>/isNoPhone}"
+                class="sapUiNoContentPadding"
+            >
+                <items>
+                    <IconTabFilter
+                        icon="sap-icon://hint"
+                        key="info"
+                    >
+                        <form:SimpleForm>
+                            <form:content>
+                                <Label text="{i18n>postDateLabel}" />
+                                <Text
+                                    text="{
+						                path: 'Timestamp',
+						                formatter: '.formatter.date'
+					                }"
+                                />
+                                <Label text="{i18n>postDescriptionLabel}" />
+                                <Text text="{Description}" />
+                            </form:content>
+                        </form:SimpleForm>
+                    </IconTabFilter>
+                    <IconTabFilter
+                        icon="sap-icon://inspection"
+                        key="statistics"
+                    >
+                        <Text
+                            text="Viewed 5555 times"
+                            id="viewCounter"
+                        />
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
         </semantic:content>
     </semantic:FullscreenPage>
 </mvc:View>

@@ -32,8 +32,14 @@ sap.ui.define([
 
         //Assertions
         Then.onThePostPage.theTitleShouldDisplayTheName("Jeans");
+    })
 
-        // Cleanup
-        Then.iTeardownMyApp()
+    opaTest("should select the statistics tab", function(Given, When, Then){
+        //Actions
+        When.onThePostPage.iPressOnTheTabWithTheKey("Statistics");
+
+        //Assertions
+        Then.onThePostPage.iShouldSeeTheViewCounter()
+        .and.iTeardownMyApp();
     })
 })

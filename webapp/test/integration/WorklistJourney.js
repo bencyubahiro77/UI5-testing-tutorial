@@ -23,9 +23,16 @@ sap.ui.define([
 
 		//Assertions
 		Then.onTheWorklistPage.theTableShouldHaveAllEntries();
+	})
+
+	opaTest("should be able to search for items", function(Given, When, Then){
+		//Actions
+		When.onTheWorklistPage.iSearchFor("Bear");
+
+		//Assertions
+		Then.onTheWorklistPage.theTableHasOneItem();
 
 		// CleanUp
 		Then.iTeardownMyApp()
 	})
-
 });
